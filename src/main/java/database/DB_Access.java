@@ -34,4 +34,28 @@ public class DB_Access {
         }
         return bookList;
     }*/
+    
+    public List<Book> gettAllBooks() throws Exception{
+        PreparedStatement pStat = pStatPool.getPStat(DB_StmtType.GET_BOOKS);
+        ResultSet rs = pStat.executeQuery();
+        List<Book> bookList = new ArrayList<>();
+        List<String> authors = new ArrayList<>();
+        rs.next();
+        String title = rs.getString("title");
+        double price = rs.getDouble("price");
+        authors.add(rs.getString("name"));
+        rs.next();
+        while(rs.next()){
+            if(title.equals(rs.getString("title"))){
+                authors.add(rs.getString("name"));
+            }else{
+                bookList.add(new Book(authors, title, price));
+                authors = new ArrayList<>();
+                title = rs.getString("title");
+                price = rs.getDouble("price");
+                authors.add(rs.getString("name"));
+            }
+        }
+        return bookList;
+    }
 }
