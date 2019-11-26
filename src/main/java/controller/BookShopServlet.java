@@ -8,6 +8,7 @@ package controller;
 import database.DB_Access;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +25,7 @@ import pojos.Book;
  */
 @WebServlet(name = "BookShopServlet", urlPatterns = {"/BookShopServlet"})
 public class BookShopServlet extends HttpServlet {
-
+private List<Book> books = new ArrayList<>();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,10 +43,7 @@ public class BookShopServlet extends HttpServlet {
         super.init(); //To change body of generated methods, choose Tools | Templates.
         DB_Access dba = new DB_Access();
         try {
-            List<Book> b = dba.getAllBooksFromAuthor();
-            for (Book book : b) {
-                System.out.println(b.toString());
-            }
+            books = dba.gettAllBooks();
         } catch (Exception ex) {
             Logger.getLogger(DB_Access.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -53,18 +51,7 @@ public class BookShopServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet BookShopServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet BookShopServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        request.getRequestDispatcher("WebBookShop.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
