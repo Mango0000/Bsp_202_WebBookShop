@@ -51,6 +51,7 @@ private List<Book> books = new ArrayList<>();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setAttribute("books", books);
         request.getRequestDispatcher("WebBookShop.jsp").forward(request, response);
     }
 
