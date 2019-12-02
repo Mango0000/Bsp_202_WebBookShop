@@ -10,7 +10,7 @@ package database;
  * @author manue
  */
 public interface DB_Config {
-    public static final String DB_NAME = "BooksDB";
+    public static final String DB_NAME = "booksdb";
     public static final String DB_USER = "postgres";
     public static final String DB_PASSWORD = "postgres";
     public static final String DB_URL = "jdbc:postgresql://localhost:5432/";
