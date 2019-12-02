@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : WebBookShop
     Created on : 19.11.2019, 13:53:28
@@ -64,21 +65,13 @@
                             <th class="TableHeadline">Author(s)</th>
                             <th class="TableHeadline">Price</th>
                         </tr>
-                        <tr>
-                            <td>Testdata</td>
-                            <td>Testdata</td>
-                            <td>Testdata</td>
-                        </tr>
-                        <tr>
-                            <td>Testdata</td>
-                            <td>Testdata</td>
-                            <td>Testdata</td>
-                        </tr>
-                        <tr>
-                            <td>Testdata</td>
-                            <td>Testdata</td>
-                            <td>Testdata</td>
-                        </tr>
+                        <c:forEach var="book" items="${books}">
+                            <tr>
+                                <td>${book.getTitle()}</td>
+                                <td>${book.getAuthor()}</td>
+                                <td>${book.getPrice()}</td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
