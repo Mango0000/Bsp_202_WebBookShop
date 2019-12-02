@@ -15,7 +15,8 @@
     <body>
         <div style="margin-left: 700px; margin-top: 50px; margin-bottom: 20px; width: 500px; height: 650px; 
                     background-color: white; border-radius: 25px">
-            
+            <form action="WBSServlet" method="POST">
+                
             <div style="margin-left: 50px; margin-top: 50px">
                 </br>
                 <a class="Headline">Sortieren</a></br>
@@ -43,17 +44,19 @@
                 <input type="radio" id="author" name="filterRb" value="author">
                 <label for="absteigend">Author(s)</label>
                 
-                <input type="text" name="filterText" value="" width="150px" style="margin-left: 10px"/>
+                <input type="text" name="filterText" value="${test}" width="150px" style="margin-left: 10px"/>
             </div>
                 
             </br>
             
-            <div class="button_cont">
-                <a class="example_d" href="add-website-here" 
-                   target="_blank" rel="nofollow noopener">Add Call to Action
-                </a>
-            </div>
+            <div>
+                <%--<a class="example_d" class="button_cont" 
+                   target="_blank" rel="nofollow noopener" onclick="this.form.submit()">Submit
+                </a>--%>
+                <input type="submit" value="Submit" name="submit" />
+            </div>                
             
+
                 <table>
                     <tbody>
                         <tr>
@@ -78,10 +81,8 @@
                         </tr>
                     </tbody>
                 </table>
-            
-            
-            
             </div>
+            </form>
         </div>
     </body>
 </html>
