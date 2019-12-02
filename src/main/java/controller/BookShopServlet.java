@@ -92,7 +92,7 @@ private List<Book> filteredbooks = new ArrayList<>();
         if(request.getParameter("filterRb")!=null){
             filter = request.getParameter("filterRb").equals("title");
         }
-        String filtertext = request.getParameter("filterText")+"";
+        String filtertext = request.getParameter("filterText").trim()+"";
         Boolean sort = false;
         if(request.getParameter("sortRb")!=null){
             sort = request.getParameter("sortRb").equals("absteigend");

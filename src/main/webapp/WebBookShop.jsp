@@ -23,7 +23,7 @@
                 <a class="Headline">Sortieren</a></br>
                 
             <div class="SortFilter">    
-                <input type="radio" id="aufsteigend" name="sortRb" value="aufsteigend">
+                <input type="radio" id="aufsteigend" name="sortRb" value="aufsteigend" checked="checked">
                 <label for="aufsteigend">Aufsteigend</label>
                 
                 <input type="radio" id="absteigend" name="sortRb" value="absteigend">
@@ -39,7 +39,7 @@
             <a class="Headline">Filter</a></br>
                 
             <div class="SortFilter">    
-                <input type="radio" id="title" name="filterRb" value="title">
+                <input type="radio" id="title" name="filterRb" value="title" checked="checked">
                 <label for="title">Title</label>
                 
                 <input type="radio" id="author" name="filterRb" value="author">
@@ -76,7 +76,7 @@
                             <tr>
                                 <td>${book.getTitle()}</td>
                                 <td>${book.getAuthor()}</td>
-                                <td>${book.getPrice()}</td>
+                                <td>€${book.getPrice()}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
