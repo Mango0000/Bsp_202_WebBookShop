@@ -23,10 +23,10 @@
                 <a class="Headline">Sortieren</a></br>
                 
             <div class="SortFilter">    
-                <input type="radio" id="aufsteigend" name="sortRb" value="aufsteigend" checked="checked">
+                <input type="radio" id="aufsteigend" name="sortRb" value="aufsteigend" ${aufsteigend}>
                 <label for="aufsteigend">Aufsteigend</label>
                 
-                <input type="radio" id="absteigend" name="sortRb" value="absteigend">
+                <input type="radio" id="absteigend" name="sortRb" value="absteigend" ${absteigend}>
                 <label for="absteigend">Absteigend</label>
                 
                 <select name="sortBy" style="margin-left: 10px;">
@@ -39,10 +39,10 @@
             <a class="Headline">Filter</a></br>
                 
             <div class="SortFilter">    
-                <input type="radio" id="title" name="filterRb" value="title" checked="checked">
+                <input type="radio" id="title" name="filterRb" value="title" ${filtert}>
                 <label for="title">Title</label>
                 
-                <input type="radio" id="author" name="filterRb" value="author">
+                <input type="radio" id="author" name="filterRb" value="author" ${filtera}>
                 <label for="absteigend">Author(s)</label>
                 
                 <input type="text" name="filterText" value="${test}" width="150px" style="margin-left: 10px"/>

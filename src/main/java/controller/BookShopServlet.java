@@ -58,6 +58,8 @@ private List<Book> filteredbooks = new ArrayList<>();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("books", filteredbooks);
+        request.setAttribute("aufsteigend", "checked");
+        request.setAttribute("filtert", "checked");
         request.getRequestDispatcher("WebBookShop.jsp").forward(request, response);
     }
 
@@ -112,9 +114,15 @@ private List<Book> filteredbooks = new ArrayList<>();
             filteredbooks.sort(Comparator.comparing(Book::getAuthor));
         }
         if(sort){
+           //request.setAttribute("absteigend", "checked");
            Collections.reverse(filteredbooks);
         }
-        processRequest(request, response);
+        request.setAttribute("absteigend", sort ? "checked" : "unchecked");
+        request.setAttribute("aufsteigend", sort ? "unchecked" : "checked");
+        request.setAttribute("filtert", filter ? "checked" : "unchecked");
+        request.setAttribute("filtera", filter ? "unchecked" : "checked");
+        request.setAttribute("books", filteredbooks);
+        request.getRequestDispatcher("WebBookShop.jsp").forward(request, response);
     }
 
     /**
