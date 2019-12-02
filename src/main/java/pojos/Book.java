@@ -5,6 +5,8 @@
  */
 package pojos;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -23,6 +25,7 @@ public class Book {
     }
 
     public String getAuthor() {
+        Collections.sort(author);
         String auth = "";
         for (String string : author) {
             auth+=string+", ";

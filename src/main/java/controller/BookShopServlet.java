@@ -9,6 +9,8 @@ import database.DB_Access;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +28,7 @@ import pojos.Book;
 @WebServlet(name = "BookShopServlet", urlPatterns = {"/BookShopServlet"})
 public class BookShopServlet extends HttpServlet {
 private List<Book> books = new ArrayList<>();
+private List<Book> filteredbooks = new ArrayList<>();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -44,6 +47,7 @@ private List<Book> books = new ArrayList<>();
         DB_Access dba = new DB_Access();
         try {
             books = dba.gettAllBooks();
+            filteredbooks = books;
         } catch (Exception ex) {
             Logger.getLogger(DB_Access.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -51,7 +55,7 @@ private List<Book> books = new ArrayList<>();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setAttribute("books", books);
+        request.setAttribute("books", filteredbooks);
         request.getRequestDispatcher("WebBookShop.jsp").forward(request, response);
     }
 
@@ -67,6 +71,21 @@ private List<Book> books = new ArrayList<>();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        filteredbooks = books;
+        Boolean filter = request.getAttribute("filterRb").equals("title");
+        String filtertext = request.getAttribute("filterText")+"";
+        Boolean sort = request.getAttribute("sortRb").equals("absteigend");
+        String sortby = request.getAttribute("sortBy")+"";
+        if(sortby.equals("Title")){
+            filteredbooks.sort(Comparator.comparing(Book::getTitle));
+        }else if(sortby.equals("Price")){
+            filteredbooks.sort(Comparator.comparing(Book::getPrice));
+        }else{
+            filteredbooks.sort(Comparator.comparing(Book::getAuthor));
+        }
+        if(sort){
+           Collections.reverse(filteredbooks);
+        }
         processRequest(request, response);
     }
 
