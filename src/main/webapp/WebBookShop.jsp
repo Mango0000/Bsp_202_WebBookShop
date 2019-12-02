@@ -16,7 +16,7 @@
     <body>
         <div style="margin-left: 700px; margin-top: 50px; margin-bottom: 20px; width: 500px; height: 650px; 
                     background-color: white; border-radius: 25px">
-            <form action="WBSServlet" method="POST">
+            <form action="BookShopServlet" method="POST">
                 
             <div style="margin-left: 50px; margin-top: 50px">
                 </br>
@@ -57,14 +57,21 @@
                 <input type="submit" value="Submit" name="submit" />
             </div>                
             
-
-                <table>
+                <div>
+                    <table class="header">
                     <tbody>
                         <tr>
                             <th class="TableHeadline">Title</th>
                             <th class="TableHeadline">Author(s)</th>
                             <th class="TableHeadline">Price</th>
                         </tr>
+                        </tbody>
+                </table>
+                </div>
+                
+                <div style="overflow: auto; height: 45vh">
+                <table>
+                    <tbody>
                         <c:forEach var="book" items="${books}">
                             <tr>
                                 <td>${book.getTitle()}</td>
@@ -74,6 +81,7 @@
                         </c:forEach>
                     </tbody>
                 </table>
+                </div>
             </div>
             </form>
         </div>

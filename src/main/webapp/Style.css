@@ -19,7 +19,11 @@ table
 {
   border-collapse: collapse;
   width: 90%;
-  margin-top: 50px;
+}
+table.header
+{
+    width:87%;
+    margin-top: 10px;
 }
 
 th.TableHeadline, td 
