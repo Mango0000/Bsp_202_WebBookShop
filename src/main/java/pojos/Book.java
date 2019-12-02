@@ -30,6 +30,7 @@ public class Book {
         for (String string : author) {
             auth+=string+", ";
         }
+        auth = auth.substring(0,auth.length()-2);
         return auth;
     }
 
