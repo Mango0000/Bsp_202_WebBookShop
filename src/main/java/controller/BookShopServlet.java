@@ -90,6 +90,7 @@ private List<Book> filteredbooks = new ArrayList<>();
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if(request.getParameter("info")!=null){
+            System.out.println("forward!!!!");
             request.getRequestDispatcher("InfoPage.jsp").forward(request, response);
         }else{
         filteredbooks = books;
