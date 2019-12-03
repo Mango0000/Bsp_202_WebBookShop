@@ -18,6 +18,17 @@ public class Book {
     private String title;
     private double price;
     private int id;
+    private int pubid;
+
+    public int getPubid() {
+        return pubid;
+    }
+
+    public void setPubid(int pubid) {
+        this.pubid = pubid;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -29,11 +40,12 @@ public class Book {
     
     
 
-    public Book(List<String> author, String title, double price, int id) {
+    public Book(List<String> author, String title, double price, int id, int pubid) {
         this.author = author;
         this.title = title;
         this.price = price;
         this.id = id;
+        this.pubid = pubid;
     }
 
     public String getAuthor() {

@@ -89,6 +89,9 @@ private List<Book> filteredbooks = new ArrayList<>();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(request.getParameter("info")!=null){
+            request.getRequestDispatcher("InfoPage.jsp").forward(request, response);
+        }else{
         filteredbooks = books;
         Boolean filter=true;
         if(request.getParameter("filterRb")!=null){
@@ -124,6 +127,7 @@ private List<Book> filteredbooks = new ArrayList<>();
         request.setAttribute("books", filteredbooks);
         request.setAttribute("filter", filtertext);
         request.getRequestDispatcher("WebBookShop.jsp").forward(request, response);
+        }
     }
 
     /**
