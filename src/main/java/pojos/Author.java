@@ -20,6 +20,10 @@ public class Author {
         this.url = url;
     }
     
+    public String getAuth(){
+        return firstname + " " + lastname;
+    }
+    
     public String getFirstname() {
         return firstname;
     }
