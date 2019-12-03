@@ -46,15 +46,17 @@ public class DB_Access {
         double price = rs.getDouble("price");
         authors.add(rs.getString("name"));
         rs.next();
+        int i=0;
         while(rs.next()){
             if(title.equals(rs.getString("title"))){
                 authors.add(rs.getString("name"));
             }else{
-                bookList.add(new Book(authors, title, price));
+                bookList.add(new Book(authors, title, price, i));
                 authors = new ArrayList<>();
                 title = rs.getString("title");
                 price = rs.getDouble("price");
                 authors.add(rs.getString("name"));
+                i++;
             }
         }
         return bookList;

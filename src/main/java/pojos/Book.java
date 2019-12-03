@@ -17,11 +17,23 @@ public class Book {
     private List<String> author;
     private String title;
     private double price;
+    private int id;
 
-    public Book(List<String> author, String title, double price) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
+
+    public Book(List<String> author, String title, double price, int id) {
         this.author = author;
         this.title = title;
         this.price = price;
+        this.id = id;
     }
 
     public String getAuthor() {
