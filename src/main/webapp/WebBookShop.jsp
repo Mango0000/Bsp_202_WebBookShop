@@ -14,8 +14,8 @@
     </head>
     <link href="Style.css" rel="stylesheet" type="text/css"/>
     <body>
-        <div style="margin-left: 700px; margin-top: 50px; margin-bottom: 20px; width: 500px; height: 650px; 
-                    background-color: white; border-radius: 25px">
+        <div style="margin-left: 600px; margin-top: 50px; margin-bottom: 20px; width: 600px; height: 650px; 
+                    background-color: white; border-radius: 25px; ">
             <form action="BookShopServlet" method="POST">
                 
             <div style="margin-left: 50px; margin-top: 50px">
@@ -23,10 +23,10 @@
                 <a class="Headline">Sortieren</a></br>
                 
             <div class="SortFilter">    
-                <input type="radio" id="aufsteigend" name="sortRb" value="aufsteigend" ${aufsteigend}>
+                <input type="radio" id="aufsteigend" name="sortRb" value="aufsteigend" ${aufsteigend} onchange="this.form.submit()">
                 <label for="aufsteigend">Aufsteigend</label>
                 
-                <input type="radio" id="absteigend" name="sortRb" value="absteigend" ${absteigend}>
+                <input type="radio" id="absteigend" name="sortRb" value="absteigend" ${absteigend} onchange="this.form.submit()">
                 <label for="absteigend">Absteigend</label>
                 
                 <select name="sortBy" style="margin-left: 10px;">
@@ -39,13 +39,13 @@
             <a class="Headline">Filter</a></br>
                 
             <div class="SortFilter">    
-                <input type="radio" id="title" name="filterRb" value="title" ${filtert}>
+                <input type="radio" id="title" name="filterRb" value="title" ${filtert} onchange="this.form.submit()">
                 <label for="title">Title</label>
                 
-                <input type="radio" id="author" name="filterRb" value="author" ${filtera}>
+                <input type="radio" id="author" name="filterRb" value="author" ${filtera} onchange="this.form.submit()"> 
                 <label for="absteigend">Author(s)</label>
                 
-                <input type="text" name="filterText" value="${test}" width="150px" style="margin-left: 10px"/>
+                <input type="text" name="filterText" value="${filter}" width="150px" onchange="this.form.submit()" style="margin-left: 10px" autofocus/>
             </div>
                 
             </br>
@@ -54,7 +54,6 @@
                 <%--<a class="example_d" class="button_cont" 
                    target="_blank" rel="nofollow noopener" onclick="this.form.submit()">Submit
                 </a>--%>
-                <input type="submit" value="Submit" name="submit" />
             </div>                
             
                 <div>
@@ -77,6 +76,7 @@
                                 <td>${book.getTitle()}</td>
                                 <td>${book.getAuthor()}</td>
                                 <td>€${book.getPrice()}</td>
+                                <td><input type="submit" name="info" value="i" style="border-radius: 100%; color: blue"/></td>
                             </tr>
                         </c:forEach>
                     </tbody>
