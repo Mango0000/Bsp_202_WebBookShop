@@ -122,6 +122,7 @@ private List<Book> filteredbooks = new ArrayList<>();
         request.setAttribute("filtert", filter ? "checked" : "unchecked");
         request.setAttribute("filtera", filter ? "unchecked" : "checked");
         request.setAttribute("books", filteredbooks);
+        request.setAttribute("filter", filtertext);
         request.getRequestDispatcher("WebBookShop.jsp").forward(request, response);
     }
 
