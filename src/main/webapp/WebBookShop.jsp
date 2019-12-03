@@ -16,9 +16,9 @@
     <body>
         <div style="margin-left: 600px; margin-top: 50px; margin-bottom: 20px; width: 600px; height: 650px; 
                     background-color: white; border-radius: 25px; ">
-            <form action="BookShopServlet" method="POST">
-                
+            
             <div style="margin-left: 50px; margin-top: 50px">
+                <form action="BookShopServlet" method="POST">
                 </br>
                 <a class="Headline">Sortieren</a></br>
                 
@@ -55,6 +55,8 @@
                    target="_blank" rel="nofollow noopener" onclick="this.form.submit()">Submit
                 </a>--%>
             </div>                
+            </form>
+            <form action="BookShopServlet" method="POST">
             
                 <div>
                     <table class="header">
@@ -73,17 +75,16 @@
                     <tbody>
                         <c:forEach var="book" items="${books}">
                             <tr>
-                                <td>${book.getTitle()}</td>
+                                <td><a href="#" onclick="this.form.submit()" style="text-decoration: none; color: black; font-weight: bold" name="info">${book.getTitle()}</a></td>
                                 <td>${book.getAuthor()}</td>
                                 <td>€${book.getPrice()}</td>
-                                <td><input type="submit" name="info" value="i" style="border-radius: 100%; color: blue"/></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
                 </div>
+                </form>
             </div>
-            </form>
         </div>
     </body>
 </html>
