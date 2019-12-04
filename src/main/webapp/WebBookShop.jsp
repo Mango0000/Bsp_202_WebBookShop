@@ -56,7 +56,7 @@
                 </a>--%>
             </div>                
             </form>
-            <form action="BookShopServlet" method="POST">
+            <form action="BookShopServlet" method="POST" id="myForm">
             
                 <div>
                     <table class="header">
@@ -75,7 +75,7 @@
                     <tbody>
                         <c:forEach var="book" items="${books}">
                             <tr>
-                                <td><a href="#" onclick="this.form.submit()" style="text-decoration: none; color: black; font-weight: bold" name="info">${book.getTitle()}</a></td>
+                                <td><a href="#" onclick="myFunction();" style="text-decoration: none; color: black; font-weight: bold" name="info">${book.getTitle()}</a></td>
                                 <td>${book.getAuthor()}</td>
                                 <td>€${book.getPrice()}</td>
                             </tr>
@@ -88,3 +88,9 @@
         </div>
     </body>
 </html>
+<script>
+    function myFunction(){
+        <c:set value="test" var="info"/>
+        document.getElementById("myForm").submit();
+    }
+</script>
