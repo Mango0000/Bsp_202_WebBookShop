@@ -78,20 +78,21 @@
                                 <td style="font-weight: bold">${book.getTitle()}</td>
                                 <td>${book.getAuthor()}</td>
                                 <td>€${book.getPrice()}</td>
-                                <td><input type="submit" value="i" onclick="myFunction();" name="info" style="color: blue; border-radius: 100%;"/></td>
+                                <td><input type="submit" value="i" name="info" onclick="myFunction('${book.getTitle()}');" style="color: blue; border-radius: 100%;"/></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-                </div>
+                </div><input type="hidden" id="text" name="test" value="23" />
                 </form>
             </div>
         </div>
     </body>
-</html>
-<script>
-    function myFunction(){
-        <c:set value="test" var="info"/>
+    <script>
+    function myFunction(text){
+        document.getElementById("text").value = text;
         document.getElementById("myForm").submit();
     }
 </script>
+</html>
+
