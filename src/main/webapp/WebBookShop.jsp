@@ -78,12 +78,12 @@
                                 <td style="font-weight: bold">${book.getTitle()}</td>
                                 <td>${book.getAuthor()}</td>
                                 <td>€${book.getPrice()}</td>
-                                <td><input type="submit" value="i" name="info" onclick="myFunction('${book.getTitle()}');" style="color: blue; border-radius: 100%;"/></td>
+                                <td><input type="button" value="i" name="info" onclick="myFunction(`${book.getTitle()}`);" style="color: blue; border-radius: 100%;"/></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-                </div><input type="hidden" id="text" name="test" value="23" />
+                </div><input type="hidden" id="text" name="test" />
                 </form>
             </div>
         </div>

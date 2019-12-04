@@ -14,11 +14,16 @@
         <title>Info Page</title>
     </head>
     <body>
-        <h2>Book</h2>
-        <h2>Author(s)</h2>
-    <c:forEach begin="1" end="2" step="1">
-        <h3>Test</h3>
-    </c:forEach>
-        <h2>Publisher</h2>
+        <div style="width: 250px;">
+            <h2>Book</h2>
+            <h3>${book.getTitle()}</h3>
+            <h2>Author(s)</h2>
+                <c:forEach var="author" items="${book.getListAuthor()}">
+                    <h3>${author}</h3>
+                </c:forEach>
+            <h2>Publisher</h2>
+            <h3>${publisher.getName()}</h3>
+            <h3>${publisher.getUrl()}</h3> 
+        </div>
     </body>
 </html>

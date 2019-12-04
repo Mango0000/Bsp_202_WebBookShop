@@ -95,13 +95,14 @@ private List<Book> filteredbooks = new ArrayList<>();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("info")!=null){
+        if(request.getParameter("test")!=null){
             String info = request.getParameter("test");
             //List<Author> author = getAuthors(request.getParameter("info"));
-            Book book = getBook(request.getParameter("info"));
+            Book book = getBook(request.getParameter("test"));
             Pubs pub = book!=null ? getPublisher(book) : null;
             //request.setAttribute("author", author);
             request.setAttribute("book", book);
+            request.setAttribute("authorList", book.getListAuthor());
             request.setAttribute("publisher", pub);
             request.getRequestDispatcher("InfoPage.jsp").forward(request, response);
         }else{
