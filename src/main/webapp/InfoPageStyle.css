@@ -7,8 +7,24 @@ body
 {
     margin-left: 120px;
     margin-top: 65px;
-    background-image: url(res/Book.png);
+    background-image: url(res/Book2.png);
     background-size: 900px,auto;
     background-color: red;
     background-repeat:no-repeat;
+}
+
+#container {
+    width: 900px;
+    margin: auto;
+}
+#first {
+    width: 300px;
+    float: left;
+}
+#second {
+    width: 600px;
+    float: left;
+}
+#clear {
+    clear: both;
 }
