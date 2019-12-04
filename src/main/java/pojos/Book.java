@@ -48,6 +48,10 @@ public class Book {
         this.pubid = pubid;
     }
 
+    public List<String> getListAuthor(){
+        return author;
+    }
+    
     public String getAuthor() {
         Collections.sort(author);
         String auth = "";
