@@ -21,7 +21,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.taglibs.standard.tei.ForEachTEI;
+import pojos.Author;
 import pojos.Book;
+import pojos.Pubs;
+//import pojos.Publisher;
 
 /**
  *
@@ -30,6 +33,7 @@ import pojos.Book;
 @WebServlet(name = "BookShopServlet", urlPatterns = {"/BookShopServlet"})
 public class BookShopServlet extends HttpServlet {
 private List<Book> books = new ArrayList<>();
+private List<Pubs> publishers = new ArrayList<>();
 private List<Book> filteredbooks = new ArrayList<>();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,6 +53,8 @@ private List<Book> filteredbooks = new ArrayList<>();
         DB_Access dba = new DB_Access();
         try {
             books = dba.gettAllBooks();
+            publishers = dba.getAllPublishers();
+            //publishers = dba.getAllPublishers();
             filteredbooks = books;
         } catch (Exception ex) {
             Logger.getLogger(DB_Access.class.getName()).log(Level.SEVERE, null, ex);
@@ -90,7 +96,13 @@ private List<Book> filteredbooks = new ArrayList<>();
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if(request.getParameter("info")!=null){
-            System.out.println("forward!!!!");
+            String info = request.getParameter("test");
+            //List<Author> author = getAuthors(request.getParameter("info"));
+            Book book = getBook(request.getParameter("info"));
+            Pubs pub = book!=null ? getPublisher(book) : null;
+            //request.setAttribute("author", author);
+            request.setAttribute("book", book);
+            request.setAttribute("publisher", pub);
             request.getRequestDispatcher("InfoPage.jsp").forward(request, response);
         }else{
         filteredbooks = books;
@@ -143,5 +155,41 @@ private List<Book> filteredbooks = new ArrayList<>();
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    /*private List<Author> getAuthors(String title) {
+        List<Author> author = new ArrayList<>();
+        String[] auth = null;
+        for (Book filteredbook : filteredbooks) {
+            if(filteredbook.getTitle().equals(title)){
+                auth = filteredbook.getAuthor().split(",");
+                break;
+            }
+        }
+        int i = 0;
+        for (Author autho : authors) {
+            if(auth[i].contains(autho.getFirstname()+" "+autho.getLastname())){
+                author.add(autho);
+            }
+        }
+        return author;
+    }*/
+
+    private Book getBook(String title) {
+        for (Book filteredbook : filteredbooks) {
+            if(filteredbook.getTitle().equals(title)){
+                return filteredbook;
+            }
+        }
+        return null;
+    }
+
+    private Pubs getPublisher(Book book) {
+        for (Pubs publisher : publishers) {
+            if(publisher.getPubid()==book.getId()){
+                return publisher;
+            }
+        }
+        return null;
+    }
 
 }

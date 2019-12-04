@@ -9,12 +9,13 @@ package pojos;
  *
  * @author manue
  */
-public class Publisher {
-    private int pubid;
-    private String url;
-    private String name;
+public class Pubs {
+private int pubid;
+private String url;
+private String name;
+    
 
-    public Publisher(int pubid, String url, String name) {
+    public Pubs(int pubid, String url, String name) {
         this.pubid = pubid;
         this.url = url;
         this.name = name;
@@ -43,6 +44,4 @@ public class Publisher {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
 }

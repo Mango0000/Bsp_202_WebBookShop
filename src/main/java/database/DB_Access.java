@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import pojos.Author;
 import pojos.Book;
+import pojos.Pubs;
 
 /**
  *
@@ -45,7 +46,7 @@ public class DB_Access {
         String title = rs.getString("title");
         double price = rs.getDouble("price");
         int pubid = rs.getInt("publisher_id");
-;        authors.add(rs.getString("name"));
+        authors.add(rs.getString("name"));
         rs.next();
         int i=0;
         while(rs.next()){
@@ -62,5 +63,34 @@ public class DB_Access {
             }
         }
         return bookList;
+    }
+    
+    public List<Author> getAllAuthors() throws Exception{
+        PreparedStatement pStat = pStatPool.getPStat(DB_StmtType.GET_AUTHORS);
+        ResultSet rs = pStat.executeQuery();
+        List<Author> authlist = new ArrayList<>();
+            String firstname, lastname, url;
+        while(rs.next()){
+                firstname = rs.getString("firstname");
+                lastname = rs.getString("lastname");
+                url = rs.getString("url");
+                authlist.add(new Author(firstname, lastname, url));
+            }
+        return authlist;
+    }
+    
+    public List<Pubs> getAllPublishers() throws Exception{
+        PreparedStatement pStat = pStatPool.getPStat(DB_StmtType.GET_PUBLISHER);
+        ResultSet rs = pStat.executeQuery();
+        List<Pubs> publist = new ArrayList<>();
+            int id;
+            String name, url;
+        while(rs.next()){
+                id = rs.getInt("publisher_id");
+                name = rs.getString("name");
+                url = rs.getString("url");
+                publist.add(new Pubs(id, url, name));
+            }
+        return publist;
     }
 }

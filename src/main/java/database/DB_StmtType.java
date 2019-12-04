@@ -17,7 +17,11 @@ public enum DB_StmtType {
     GET_BOOKS_FROM_AUTHOR("SELECT firstname, lastname, title\n" +
                           "FROM bookauthor ba INNER JOIN author a ON ba.author_id = a.author_id\n" +
                           "                   INNER JOIN book b ON ba.book_id = b.book_id\n"+
-                          "WHERE firstname = ?");
+                          "WHERE firstname = ?"),
+    GET_PUBLISHER("SELECT *\n" +
+                  "FROM publisher;"),
+    GET_AUTHORS("SELECT *\n" +
+                "FROM author;");
     
     private DB_StmtType(String sqlstring) {
         this.sqlstring = sqlstring;
