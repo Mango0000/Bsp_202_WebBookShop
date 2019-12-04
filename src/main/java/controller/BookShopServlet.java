@@ -186,7 +186,7 @@ private List<Book> filteredbooks = new ArrayList<>();
 
     private Pubs getPublisher(Book book) {
         for (Pubs publisher : publishers) {
-            if(publisher.getPubid()==book.getId()){
+            if(publisher.getPubid()==book.getPubid()){
                 return publisher;
             }
         }
