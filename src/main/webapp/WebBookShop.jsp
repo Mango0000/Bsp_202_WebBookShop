@@ -30,9 +30,9 @@
                 <label for="absteigend">Absteigend</label>
                 
                 <select name="sortBy" onchange="this.form.submit()" style="margin-left: 10px;">
-                    <option>Title</option>
-                    <option>Author(s)</option>
-                    <option>Price</option>
+                    <option ${title}>Title</option>
+                    <option ${author}>Author(s)</option>
+                    <option ${price}>Price</option>
                 </select>
             </div>
                 
@@ -62,9 +62,9 @@
                     <table class="header">
                     <tbody>
                         <tr>
-                            <th class="TableHeadline">Title</th>
-                            <th class="TableHeadline">Author(s)</th>
-                            <th class="TableHeadline">Price</th>
+                            <th class="TableHeadline" style="width:44%">Title</th>
+                            <th class="TableHeadline" style="width:40%">Author(s)</th>
+                            <th class="TableHeadline" style="width:16%">Price</th>
                         </tr>
                         </tbody>
                 </table>

@@ -1,4 +1,14 @@
-h1
+h2
 {
-    color: blue;
+    color: red;
+}
+
+body
+{
+    margin-left: 120px;
+    margin-top: 65px;
+    background-image: url(res/Book.png);
+    background-size: 900px,auto;
+    background-color: red;
+    background-repeat:no-repeat;
 }
