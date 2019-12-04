@@ -14,6 +14,7 @@
         <title>Info Page</title>
     </head>
     <body>
+        <div style="width: 250px;">
             <h2>Book</h2>
             <h4>${book.getTitle()}</h4>
             <h4>€ ${book.getPrice()}</h4>
@@ -24,6 +25,6 @@
             <h2>Publisher</h2>
             <h4>${publisher.getName()}</h4>
             <h4><a target="_blank" href="https://${publisher.getUrl()}">${publisher.getUrl()}</a></h4>
-       
+        </div>
     </body>
 </html>
