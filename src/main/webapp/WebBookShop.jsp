@@ -29,7 +29,7 @@
                 <input type="radio" id="absteigend" name="sortRb" value="absteigend" ${absteigend} onchange="this.form.submit()">
                 <label for="absteigend">Absteigend</label>
                 
-                <select name="sortBy" style="margin-left: 10px;">
+                <select name="sortBy" onchange="this.form.submit()" style="margin-left: 10px;">
                     <option>Title</option>
                     <option>Author(s)</option>
                     <option>Price</option>
@@ -75,9 +75,10 @@
                     <tbody>
                         <c:forEach var="book" items="${books}">
                             <tr>
-                                <td><a href="#" onclick="myFunction();" style="text-decoration: none; color: black; font-weight: bold" name="info">${book.getTitle()}</a></td>
+                                <td style="font-weight: bold">${book.getTitle()}</td>
                                 <td>${book.getAuthor()}</td>
                                 <td>€${book.getPrice()}</td>
+                                <td><input type="submit" value="i" onclick="myFunction();" name="info" style="color: blue; border-radius: 100%;"/></td>
                             </tr>
                         </c:forEach>
                     </tbody>

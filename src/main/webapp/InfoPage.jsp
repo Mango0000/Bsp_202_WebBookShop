@@ -5,13 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link href="InfoPageStyle.css" rel="stylesheet" type="text/css"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Info Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h2>Book</h2>
+        <h2>Author(s)</h2>
+        <h2>Publisher</h2>
     </body>
 </html>

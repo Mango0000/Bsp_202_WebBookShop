@@ -121,6 +121,9 @@ private List<Book> filteredbooks = new ArrayList<>();
            //request.setAttribute("absteigend", "checked");
            Collections.reverse(filteredbooks);
         }
+        request.setAttribute("title", sortby.equals("Title")?"selected":"");
+        request.setAttribute("author", sortby.equals("Author(s)")?"selected":"");
+        request.setAttribute("price", sortby.equals("Price")?"selected":"");
         request.setAttribute("absteigend", sort ? "checked" : "unchecked");
         request.setAttribute("aufsteigend", sort ? "unchecked" : "checked");
         request.setAttribute("filtert", filter ? "checked" : "unchecked");
